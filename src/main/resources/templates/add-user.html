@@ -3,15 +3,18 @@
 <head>
     <meta charset="utf-8">
     <title>Add User</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <form action="#" th:action="@{/users/add}" th:object="${userCreationForm}" method="post">
         <label for="email">Email</label>
         <input type="text" th:field="*{email}" id="email" placeholder="Email">
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        <br/>
         <label for="password">Password</label>
-        <input type="text" th:field="*{password}" id="password" placeholder="Email">
+        <input type="password" th:field="*{password}" id="password" placeholder="Password">
         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        <br/>
         <input type="submit" value="Add User">
     </form>
 </body>

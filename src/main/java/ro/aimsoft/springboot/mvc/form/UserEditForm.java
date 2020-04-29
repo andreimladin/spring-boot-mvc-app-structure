@@ -1,9 +1,9 @@
-package ro.aimsoft.springboot.mvc.dto;
+package ro.aimsoft.springboot.mvc.form;
 
 import javax.validation.constraints.*;
 import java.util.UUID;
 
-public class UserDTO {
+public class UserEditForm {
 
     @NotNull
     private UUID id;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ro.aimsoft.springboot.mvc.dto.UserDTO;
+import ro.aimsoft.springboot.mvc.form.UserEditForm;
 import ro.aimsoft.springboot.mvc.form.UserCreationForm;
 import ro.aimsoft.springboot.mvc.service.UserService;
 
@@ -56,14 +56,14 @@ public class UserController {
 
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") UUID id, Model model) {
-        UserDTO user = userService.getUser(id);
+        UserEditForm user = userService.getUser(id);
 
         model.addAttribute("user", user);
         return "edit-user";
     }
 
     @PostMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") UUID id, @Valid UserDTO user,
+    public String updateUser(@PathVariable("id") UUID id, @Valid UserEditForm user,
                              BindingResult result, Model model) {
         System.out.println("ID: " + id);
         if (result.hasErrors()) {
